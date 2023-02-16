@@ -2,12 +2,6 @@ import glob
 import logging
 import os
 
-# Utilities.
-from dls_utilpack.callsign import callsign
-from dls_utilpack.explain import explain
-from dls_utilpack.require import require
-from dls_utilpack.sanitize import sanitize
-
 logger = logging.getLogger(__name__)
 
 

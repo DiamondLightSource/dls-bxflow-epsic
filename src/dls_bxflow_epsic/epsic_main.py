@@ -1,6 +1,5 @@
 import logging
 import os
-from datetime import datetime
 
 # Workflows standard main base class.
 from dls_bxflow_lib.bx_workflows.main import Main as BxWorkflowsMain
@@ -13,6 +12,7 @@ from dls_bxflow_epsic.version import meta as version_meta
 from dls_bxflow_epsic.version import version
 
 logger = logging.getLogger(__name__)
+
 
 # --------------------------------------------------------------
 class EpsicMain(BxWorkflowsMain):
@@ -41,11 +41,11 @@ class EpsicMain(BxWorkflowsMain):
 
         BEAMLINE = os.environ.get("BEAMLINE")
         if BEAMLINE is None:
-            raise RuntimeError(f"BEAMLINE environment variable is not defined")
+            raise RuntimeError("BEAMLINE environment variable is not defined")
 
         VISIT = self._args.visit
         if VISIT is None:
-            raise RuntimeError(f"the visit command line argument is not set")
+            raise RuntimeError("the visit command line argument is not set")
 
         YEAR = get_visit_year(BEAMLINE, VISIT)
 

@@ -1,15 +1,5 @@
 import json
 import logging
-import os
-
-# Remex (remote execution) API.
-from dls_bxflow_api.remex import Clusters as RemexClusters
-from dls_bxflow_api.remex import Keywords as RemexKeywords
-
-# Configurator interface.
-from dls_bxflow_lib.bx_configurators.bx_configurators import (
-    bx_configurators_get_default,
-)
 
 # Filestore interface.
 from dls_bxflow_lib.bx_filestores.bx_filestores import bx_filestores_get_default
@@ -175,7 +165,7 @@ class EpsicWorkflow(BxWorkflowBase):
                 # Finally, the individual task may also use remex hints when it runs.
                 "remex_hints": "mib_convert",
                 "type_specific_tbd": {
-                    "module_classname": f"dls_bxflow_epsic.algorithms.mib_converter::MibConverter",
+                    "module_classname": "dls_bxflow_epsic.algorithms.mib_converter::MibConverter",
                     "constructor_args": [mib_filename],
                     # This task needs the bx_task reference in order to give it artifacts.
                     # This is a placeholder here... the value will be filled in at runtime.
@@ -195,6 +185,6 @@ class EpsicWorkflow(BxWorkflowBase):
             self.add_task(bx_task)
 
         except Exception:
-            raise RuntimeError(f"error adding mib_convert task")
+            raise RuntimeError("error adding mib_convert task")
 
         return bx_task
