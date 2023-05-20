@@ -1,16 +1,12 @@
-.. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.1.
-.. # ********** For repository_name dls-bxflow-epsic
-
 Installing
 =======================================================================
 
 
-You will need python 3.9 or later. 
+You will need python ${python_version_at_least} or later. 
 
-On a Diamond Light Source internal computer, you can achieve Python 3.9 by::
+On a Diamond Light Source internal computer, you can achieve Python ${python_version_at_least} by::
 
-    $ module load python/3.9
+    $ module load python/${python_version_at_least}
 
 You can check your version of python by typing into a terminal::
 
@@ -26,18 +22,19 @@ installation will not interfere with any existing Python software::
 
 You can now use ``pip`` to install the library and its dependencies::
 
-    $ export PIP_FIND_LINKS=/dls_sw/apps/bxflow/artifacts
-    $ python3 -m pip install dls-bxflow-epsic
+    .. ifconfig:: pip_find_links
+
+        $ export PIP_FIND_LINKS=${pip_find_links}
+
+    $ python3 -m pip install ${repository_name}
 
 If you require a feature that is not currently released you can also install
 from git::
 
-    $ python3 -m pip install git+None/dls-bxflow-epsic.git
+    $ python3 -m pip install git+${git_url}/${repository_name}.git
 
 The library should now be installed and the commandline interface on your path.
 You can check the version that has been installed by typing::
 
-    $ dls-bxflow-epsic --version
-    $ dls-bxflow-epsic --version-json
-
-.. # dae_devops_fingerprint c2d1dd060a19ee7d8f64de4e6fc349c7
+    $ ${repository_name} --version
+    $ ${repository_name} --version-json
