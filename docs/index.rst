@@ -9,7 +9,7 @@ Also implements the filesystem naming conventions at the beamline.
 
 
 .. toctree::
-    tutorials/tutorials
-    how-to/how-to
-    explanations/explanations
-    reference/reference
+    tutorials/index
+    how-to/index
+    explanations/index
+    reference/index
