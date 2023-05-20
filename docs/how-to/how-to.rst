@@ -8,4 +8,8 @@ Practical step-by-step guides for the more experienced user.
 
 .. toctree::
 
-    tbd
+    installing
+    developing
+    testing
+    devops
+    
