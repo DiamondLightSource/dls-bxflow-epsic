@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.1.
+# ********** It has been generated automatically by dae_devops version 0.5.3.dev0+gdce9902.d20230520.
 # ********** For repository_name dls-bxflow-epsic
 
 from pathlib import Path
@@ -150,7 +150,7 @@ html_theme_options = dict(
     logo=dict(
         text=project,
     ),
-    gitlab_url="None/dls-bxflow-epsic",
+    gitlab_url="https://github.com/DiamondLightSource/dls-bxflow-epsic",
     icon_links=[],
     navbar_end=["theme-switcher", "icon-links"],
 )
@@ -187,7 +187,7 @@ def ultimateReplace(app, docname, source):
 ultimate_replacements = {
     "$" + "{repository_name}": "dls-bxflow-epsic",
     "$" + "{package_name}": "dls_bxflow_epsic",
-    "$" + "{git_url}": "None",
+    "$" + "{git_url}": "https://github.com/DiamondLightSource",
     "$" + "{python_version_at_least}": "3.9",
 }
 
@@ -197,4 +197,4 @@ def setup(app):
     app.connect("source-read", ultimateReplace)
 
 
-# dae_devops_fingerprint 3e7235c51f320375fb661b9275563a7b
+# dae_devops_fingerprint 196b057dc311d4a4fda2ff14f32d22e5

@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.1.
+# ********** It has been generated automatically by dae_devops version 0.5.3.dev0+gdce9902.d20230520.
 # ********** For repository_name dls-bxflow-epsic
 
 name: Docs CI
@@ -56,4 +56,4 @@ jobs:
           publish_dir: .github/pages
           keep_files: true
 
-# dae_devops_fingerprint 9f2aa1ea17c5016c908a0256958f38e1
+# dae_devops_fingerprint ef43630bd11a4dbd266b64bc3bc8fc15

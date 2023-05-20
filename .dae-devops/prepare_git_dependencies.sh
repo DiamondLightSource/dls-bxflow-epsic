@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.1.
+# ********** It has been generated automatically by dae_devops version 0.5.3.dev0+gdce9902.d20230520.
 # ********** For repository_name dls-bxflow-epsic
 
 me=${BASH_SOURCE}
@@ -13,4 +13,4 @@ function __install {
 }
 
 
-# dae_devops_fingerprint bde8d314de9106ab30a04f8489e4bc63
+# dae_devops_fingerprint a250bdf7d7d89df90336cde0ed63e1a5

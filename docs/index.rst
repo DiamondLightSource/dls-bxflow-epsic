@@ -9,6 +9,8 @@ Also implements the filesystem naming conventions at the beamline.
 
 
 .. toctree::
+    :titlesonly:
+
     tutorials/index
     how-to/index
     explanations/index

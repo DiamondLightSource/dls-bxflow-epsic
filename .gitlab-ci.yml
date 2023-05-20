@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.1.
+# ********** It has been generated automatically by dae_devops version 0.5.3.dev0+gdce9902.d20230520.
 # ********** For repository_name dls-bxflow-epsic
 
 variables:
@@ -87,4 +87,4 @@ package_pip:
 #     # The validate_docs artifacts are in the build/html folder.
 #     - make -f .dae-devops/Makefile publish_docs
 
-# dae_devops_fingerprint b38987b05905a2da4e0865e405239307
+# dae_devops_fingerprint 85aae502c24a5d852f8316e49fb790b6
