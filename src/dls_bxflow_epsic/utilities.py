@@ -11,10 +11,10 @@ def is_done_filename_2_data_label(is_done_filename):
     Given a full mib (or is_done) filename path, derive a data label from it.
 
     Rules:
-    1. the data_filename must have /Merlin/ somwhere in the path.
-    2. the final directory in the path is ignored.
-    3. whatever is between /Merlin/ and that final directory, is the data_label.
-    4. this works for is_done files whose name differ from their mib files by suffix only.
+        1. the data_filename must have /Merlin/ somwhere in the path.
+        2. the final directory in the path is ignored.
+        3. whatever is between /Merlin/ and that final directory, is the data_label.
+        4. this works for is_done files whose name differ from their mib files by suffix only.
     """
 
     # There should be one Merlin somewhere in the scraped filename.
@@ -57,10 +57,10 @@ def mib_filename_2_data_label(mib_filename):
     Given a full mib (or is_done) filename path, derive a data label from it.
 
     Rules:
-    1. the data_filename must have /Merlin/ somwhere in the path.
-    2. the final directory in the path is ignored.
-    3. whatever is between /Merlin/ and that final directory, is the data_label.
-    4. this works for is_done files whose name differ from their mib files by suffix only.
+        1. the data_filename must have /Merlin/ somwhere in the path.
+        2. the final directory in the path is ignored.
+        3. whatever is between /Merlin/ and that final directory, is the data_label.
+        4. this works for is_done files whose name differ from their mib files by suffix only.
     """
 
     # There should be one Merlin somewhere in the scraped filename.

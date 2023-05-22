@@ -31,9 +31,9 @@ class EpsicWorkflow(BxWorkflowBase):
     This class provides some beamline-specific helper methods.
 
     It makes some assumptions:
-    - tasks are added in order, and only depend on the one coming before to finish
-    - the final task ends the job with either of its standard gates
-    - any failure gate ends the job
+        - tasks are added in order, and only depend on the one coming before to finish
+        - the final task ends the job with either of its standard gates
+        - any failure gate ends the job
     """
 
     # ------------------------------------------------------------------
@@ -91,6 +91,7 @@ class EpsicWorkflow(BxWorkflowBase):
         Args:
             notebook_name (str): name of the notebook, without root directory or .ipynb suffix
             cells ({str: str}, optional): Python code to be put into cells. Defaults to None, which means don't replace.
+                This argument is a dict whose keys are the cell numbers.
             label_suffix (str, optional): Suffix to be appended to notebook name for task label, for example when multiple of the same task class are done on the same inputs Defaults to None.
 
         Raises:

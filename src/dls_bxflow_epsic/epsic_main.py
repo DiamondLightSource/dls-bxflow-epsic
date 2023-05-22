@@ -16,6 +16,15 @@ logger = logging.getLogger(__name__)
 
 # --------------------------------------------------------------
 class EpsicMain(BxWorkflowsMain):
+    """
+    Class which will run a workflow from the command line.
+
+    The command line arguments will be defined according to the settings defined in the workflow.
+
+    The base class, BxWorkflowsMain, takes care of the actual building, scheduling and waiting.
+
+    This class defines only the 3 necessary virtual methods required by the base class.
+    """
 
     # ----------------------------------------------------------
     def version(self):
@@ -36,6 +45,21 @@ class EpsicMain(BxWorkflowsMain):
 
     # ----------------------------------------------------------------------------------------
     def get_bx_configurator(self, environ=None):
+        """
+        Method called by the base class to provide a configurator object.
+
+        Typically this will just be the standard object with beamline-specific substitutions defined.
+
+        The substitutions are primarily resolved on varibles in the main yaml configuration file, but can be referenced by code as well.
+
+        Args:
+            environ (Dict, optional): Dictionary of environment variables.
+            Defaults to None in which case the system environment variables are used..
+
+        Returns:
+            BxConfigurator object
+        """
+
         # Get the vanilla one from the base class.
         bx_configurator = BxWorkflowsMain.get_bx_configurator(self, environ)
 

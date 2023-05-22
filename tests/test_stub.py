@@ -22,7 +22,7 @@ class TestStub(BaseTester):
         Args:
             logging_setup (Any): logging setup created by the fixture
             output_directory (str): output directory assigned by the fixture.
-                The output directory is typically in /tmp/dls-bxflow-b24.
+                The output directory is typically in /tmp/dls-bxflow-epsic.
                 It is wiped clean before the test, but left standing after the test.
 
         The output directory is set up as the current working directory
