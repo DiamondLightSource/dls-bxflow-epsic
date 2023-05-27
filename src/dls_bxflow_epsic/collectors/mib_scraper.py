@@ -29,7 +29,7 @@ class MibScraper(BxFlowScraper):
     # ----------------------------------------------------------------------------------------
     def derive_data_label(self, data_filename):
         """
-        Data label, such as scan number, derived from specification data_filename.
+        Returns a data label, such as scan number, derived from specification data_filename.
         This method fulfills the abstract method on the base class.
         """
 

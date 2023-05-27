@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.3.dev0+gdce9902.d20230520.
+.. # ********** It has been generated automatically by dae_devops version 0.5.4.dev0+g1fb30ef.d20230527.
 .. # ********** For repository_name dls-bxflow-epsic
 
 Devops
@@ -44,4 +44,4 @@ Publishing (for the Diamond intranet)::
     
 The Diamond intranet commands are not used for production. The production packaging and publishing are handled in the GitHub Actions workflows mechanism.
 
-.. # dae_devops_fingerprint 7657139e974f70c84d9bbd747bce2ed4
+.. # dae_devops_fingerprint dd9f97ffdbe7de85343497d1d7e039e3

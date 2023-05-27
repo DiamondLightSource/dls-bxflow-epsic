@@ -40,7 +40,8 @@ class MibConverter:
     """
     Class which converts a single mib file to hdf5.
     Uses the method "convert" imported from mib2hdfConvert package in https://github.com/ePSIC-DLS/epsic_tools.
-    This is called via mib_convert task run method, by main_isolated on the cluster.
+    This class is called from the EpsicWorkflow::add_mib_convert_task method.
+    This runs in the cluster.
     """
 
     def __init__(self, mib_filename, bx_task=None):
@@ -67,7 +68,7 @@ class MibConverter:
     async def run(self):
         """
         Run the conversion.
-        Even though async, this caller knows this be long-blocking.
+        Even though async, the caller knows this be long-blocking.
         """
 
         if self.has_any_converted_filenames():
@@ -94,7 +95,7 @@ class MibConverter:
                 # Filter out the unwanted log lines.
                 handler.addFilter(_logging_filter())
 
-            # We use the module load bxflow/epsic/latest to set the PYTHONPATH for this.
+            # Presume the "module load bxflow/epsic/latest" sets the PYTHONPATH for this import.
             from batch_mib_convert.mib2hdf_watch_convert import convert
 
             convert(

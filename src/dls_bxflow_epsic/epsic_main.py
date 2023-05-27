@@ -1,5 +1,6 @@
 import logging
 import os
+from typing import Dict, Optional
 
 # Workflows standard main base class.
 from dls_bxflow_lib.bx_workflows.main import Main as BxWorkflowsMain
@@ -44,24 +45,24 @@ class EpsicMain(BxWorkflowsMain):
         return {"versions": version_meta()}
 
     # ----------------------------------------------------------------------------------------
-    def get_bx_configurator(self, environ=None):
+    def get_bx_configurator(self, presets: Optional[Dict[str, str]] = None):
         """
-        Method called by the base class to provide a configurator object.
+        Provide a configurator object.
 
         Typically this will just be the standard object with beamline-specific substitutions defined.
 
         The substitutions are primarily resolved on varibles in the main yaml configuration file, but can be referenced by code as well.
 
         Args:
-            environ (Dict, optional): Dictionary of environment variables.
-            Defaults to None in which case the system environment variables are used..
+            presets (Dict[str, str], Optional): Dictionary of pre-set environment variables.
+                Defaults to None in which case the system environment variables are used.
 
         Returns:
             BxConfigurator object
         """
 
         # Get the vanilla one from the base class.
-        bx_configurator = BxWorkflowsMain.get_bx_configurator(self, environ)
+        bx_configurator = BxWorkflowsMain.get_bx_configurator(self, presets)
 
         BEAMLINE = os.environ.get("BEAMLINE")
         if BEAMLINE is None:

@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.5.3.dev0+gdce9902.d20230520.
+# ********** It has been generated automatically by dae_devops version 0.5.4.dev0+g1fb30ef.d20230527.
 # ********** For repository_name dls-bxflow-epsic
 
 name: Docs Cleanup CI
@@ -46,4 +46,4 @@ jobs:
           git commit -am "Removing redundant docs version $DOCS_VERSION"
           git push
 
-# dae_devops_fingerprint ca59bd4bb65aed48bf2b3f84860b575a
+# dae_devops_fingerprint 4d17fd267a29eb07bc8fc18a9404ad7e

@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.3.dev0+gdce9902.d20230520.
+.. # ********** It has been generated automatically by dae_devops version 0.5.4.dev0+g1fb30ef.d20230527.
 .. # ********** For repository_name dls-bxflow-epsic
 
 Contributing to the project
@@ -38,4 +38,4 @@ should follow.
 
 .. _Developer Guide: https://diamondlightsource.github.io/dls-bxflow-epsic/main/developer/how-to/contribute.html
 
-.. # dae_devops_fingerprint 544c4b91877f6de645ec9c57d56b5ebe
+.. # dae_devops_fingerprint 13ac2e6d5f664ef7ea332d28c6398ae0

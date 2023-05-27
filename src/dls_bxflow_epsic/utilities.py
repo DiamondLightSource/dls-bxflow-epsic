@@ -1,14 +1,15 @@
 import glob
 import logging
 import os
+from typing import Optional, Tuple
 
 logger = logging.getLogger(__name__)
 
 
 # ------------------------------------------------------------------------------------------
-def is_done_filename_2_data_label(is_done_filename):
+def is_done_filename_2_data_label(is_done_filename: str) -> str:
     """
-    Given a full mib (or is_done) filename path, derive a data label from it.
+    Given a full "is_done" filename path, derive a data label from it.
 
     Rules:
         1. the data_filename must have /Merlin/ somwhere in the path.
@@ -26,9 +27,9 @@ def is_done_filename_2_data_label(is_done_filename):
         raise RuntimeError(f"multiple /Merlin/ in is_done_filename {is_done_filename}")
 
     # Everything past the Merlin.
-    parts = parts[1]
+    part1 = parts[1]
     # Split into subdirectories.
-    parts = parts.split("/")
+    parts = part1.split("/")
 
     if len(parts) < 2:
         raise RuntimeError(
@@ -52,9 +53,9 @@ def is_done_filename_2_data_label(is_done_filename):
 
 
 # ------------------------------------------------------------------------------------------
-def mib_filename_2_data_label(mib_filename):
+def mib_filename_2_data_label(mib_filename: str) -> str:
     """
-    Given a full mib (or is_done) filename path, derive a data label from it.
+    Given a full mib filename path, derive a data label from it.
 
     Rules:
         1. the data_filename must have /Merlin/ somwhere in the path.
@@ -72,9 +73,9 @@ def mib_filename_2_data_label(mib_filename):
         raise RuntimeError(f"multiple /Merlin/ in mib_filename {mib_filename}")
 
     # Everything past the Merlin.
-    parts = parts[1]
+    part1 = parts[1]
     # Split into subdirectories.
-    parts = parts.split("/")
+    parts = part1.split("/")
 
     if len(parts) < 3:
         raise RuntimeError(f"no material after /Merlin/ in mib_filename {mib_filename}")
@@ -96,8 +97,10 @@ def mib_filename_2_data_label(mib_filename):
 
 
 # ------------------------------------------------------------------------------------------
-def data_label_2_mib_filename(data_label):
-    """ """
+def data_label_2_mib_filename(data_label: str) -> str:
+    """
+    Given a data label, compose a full filename path to the mib file.
+    """
 
     beamline, year, visit = configuration_2_byv()
 
@@ -125,11 +128,13 @@ def data_label_2_mib_filename(data_label):
 
 
 # ------------------------------------------------------------------------------------------
-def data_label_2_processing(data_label, nickname=None):
+def data_label_2_processing(data_label: str, nickname: Optional[str] = None) -> str:
     """
-    Give processing directory where data_label stuff is saved.
+    Return processing directory where data_label stuff is saved.
     This area is outside any task's specific instance directory.
     That is, all tasks of all jobs ever run share reading and writing into this directory.
+
+    If nickname is provided, it is used to customize the actual filename produced for the data label.
     """
 
     beamline, year, visit = configuration_2_byv()
@@ -161,7 +166,13 @@ def data_label_2_processing(data_label, nickname=None):
 
 
 # ----------------------------------------------------------------------------------------
-def configuration_2_byv():
+def configuration_2_byv() -> Tuple[str, str, str]:
+    """
+    Returns the beamline, year and visit indicated by the configuration.
+
+    Returns:
+        Tuple[str, str, str]: beamline, year, visit
+    """
 
     # Configurator interface.
     from dls_bxflow_lib.bx_configurators.bx_configurators import (
@@ -176,7 +187,13 @@ def configuration_2_byv():
 
 
 # ----------------------------------------------------------------------------------------
-def data_filename_2_byv(data_filename):
+def data_filename_2_byv(data_filename: str) -> Tuple[str, str, str]:
+    """
+    Returns the beamline, year and visit indicated by the filename.
+
+    Returns:
+        Tuple[str, str, str]: beamline, year, visit
+    """
 
     error = "nonconformant data filename"
 
@@ -203,7 +220,16 @@ def data_filename_2_byv(data_filename):
 
 
 # ----------------------------------------------------------------------------------------
-def mib_filename_2_filestore_directory(mib_filename):
+def mib_filename_2_filestore_directory(mib_filename: str) -> str:
+    """
+    From the mib_filename, derive the associated directory name where execution results can be written.
+
+    Args:
+        mib_filename (str): full path to mib filename
+
+    Returns:
+        str: directory in the visit's procecssing area, with data label as leaf
+    """
 
     data_label = mib_filename_2_data_label(mib_filename)
 
@@ -223,11 +249,19 @@ def mib_filename_2_filestore_directory(mib_filename):
 
 
 # ----------------------------------------------------------------------------------------
-def data_label_2_filestore_directory(data_label):
+def data_label_2_filestore_directory(data_label: str) -> str:
+    """
+    From the data_label, derive the associated directory name where execution results can be written.
+
+    Args:
+        data_label (str): data_label for this dataset
+
+    Returns:
+        str: directory in the visit's procecssing area, with data label as leaf
+    """
 
     # This needs configurator to give beamline, year and visit.
     # So is not available under main_isolated.
-    # TODO: Let main_isolated create a filestore.
     mib_filename = data_label_2_mib_filename(data_label)
 
     filestore_directory = mib_filename_2_filestore_directory(mib_filename)

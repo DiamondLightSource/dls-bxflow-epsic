@@ -11,5 +11,6 @@ Practical step-by-step guides for the more experienced user.
     installing
     developing
     testing
+    documenting
     devops
     

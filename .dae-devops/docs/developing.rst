@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.3.dev0+gdce9902.d20230520.
+.. # ********** It has been generated automatically by dae_devops version 0.5.4.dev0+g1fb30ef.d20230527.
 .. # ********** For repository_name dls-bxflow-epsic
 
 Developing
@@ -9,6 +9,7 @@ If you plan to make change to the code in this repository, you can use the steps
 
 Clone the repository::
 
+    $ cd <your development area>
     $ git clone https://github.com/DiamondLightSource/dls-bxflow-epsic.git
 
 It is recommended that you install into a virtual environment so this
@@ -22,17 +23,9 @@ Make sure to have at least python version 3.9 then::
 Install the package in edit mode which will also install all its dependencies::
 
     $ cd dls-bxflow-epsic
-    $ pip install -e .[dev]
+    $ pip install -e .[dev,docs]
 
 Now you may begin modifying the code.
 
-|
 
-If you plan to modify the docs, you will need to::
-
-    $ pip install -e .[docs]
-
-    
-
-
-.. # dae_devops_fingerprint 2f2156646947e7bb8a915905379396f1
+.. # dae_devops_fingerprint 7826bc083f17254f3dd7ee314d804d35

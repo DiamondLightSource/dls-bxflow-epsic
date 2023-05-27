@@ -1,17 +1,20 @@
 import json
 import logging
+from typing import Dict, Optional, Union
 
 # Filestore interface.
 from dls_bxflow_lib.bx_filestores.bx_filestores import bx_filestores_get_default
+
+# Base class for workflows.
 from dls_bxflow_lib.bx_workflows.base import Base as BxWorkflowBase
 
 # Object managers.
 from dls_bxflow_run.bx_tasks.bx_tasks import BxTasks
 from dls_bxflow_run.bx_tasks.constants import Types as BxTaskTypes
-from dls_utilpack.callsign import callsign
-from dls_utilpack.require import require
 
 # Utilities.
+from dls_utilpack.callsign import callsign
+from dls_utilpack.require import require
 from dls_utilpack.search_file import search_file
 
 # Output location convention.
@@ -67,9 +70,7 @@ class EpsicWorkflow(BxWorkflowBase):
                 f"{callsign(self)} sets filestore_directory to {filestore_directory}"
             )
 
-        # -----------------------------------------------------------------------------
         # Init the base class only AFTER the filestore_directory is set.
-
         BxWorkflowBase.__init__(self, **kwargs)
 
         # There might be no data label in the constructor kwargs.
@@ -80,25 +81,29 @@ class EpsicWorkflow(BxWorkflowBase):
     # ------------------------------------------------------------------
     def add_notebook_task(
         self,
-        notebook_name,
-        modify_cells=None,
-        remex_hints=None,
-        label_suffix=None,
+        notebook_name: str,
+        modify_cells: Optional[Dict] = None,
+        remex_hints: Optional[Union[Dict, str]] = None,
+        label_suffix: Optional[str] = None,
     ):
+
         """
         Add a notebook task.
 
         Args:
             notebook_name (str): name of the notebook, without root directory or .ipynb suffix
-            cells ({str: str}, optional): Python code to be put into cells. Defaults to None, which means don't replace.
+            modify_cells (Optional[Dict]): Python code to be put into cells.
+                Defaults to None, which means don't replace.
                 This argument is a dict whose keys are the cell numbers.
-            label_suffix (str, optional): Suffix to be appended to notebook name for task label, for example when multiple of the same task class are done on the same inputs Defaults to None.
+            remex_hints (Optional[Dict]): Dictionary specifying the remote execution hints for this task.
+            label_suffix (Optional[str]): Suffix to be appended to notebook name for task label,
+                for example when multiple of the same task class are done on the same inputs Defaults to None.
 
         Raises:
             RuntimeError: Any kind of error in this method.
 
         Returns:
-            BxTask: task object.
+            BxTask task object.
         """
 
         label = notebook_name
@@ -131,7 +136,6 @@ class EpsicWorkflow(BxWorkflowBase):
             }
 
             # Assemble remex_hints from task and configuration.
-            # TODO: Find a way to avoid manually doing assemble_remex_hints for every task.
             self.assemble_remex_hints(bx_task_specification)
 
             # Build the task.

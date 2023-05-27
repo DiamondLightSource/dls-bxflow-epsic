@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.5.3.dev0+gdce9902.d20230520.
+.. # ********** It has been generated automatically by dae_devops version 0.5.4.dev0+g1fb30ef.d20230527.
 .. # ********** For repository_name dls-bxflow-epsic
 
 Testing
@@ -23,12 +23,12 @@ If you want to see more output of the test while it's running you can do::
 
 Each test will write files into its own directory::
 
-    /tmp/dls-bxflow-epsic/tests/....
+    /tmp/dls-bxflow-epsic/tests/*
 
 The tests clear their directory when they start, but not when they finish.
-This allows peeking in there to see what's been written by the test.
+This allows you to examine what's been written by the test.
 
     
 
 
-.. # dae_devops_fingerprint 141276b9b107730ba99fe4b3c801290e
+.. # dae_devops_fingerprint bab70d37c19b19ab18e91257d0c2259b

@@ -20,7 +20,6 @@ def logging_setup():
         None
     """
 
-    # TODO: Better way to get a newline in conftest after pytest emits the test class name.
     print("")
 
     formatter = DlsLogformatter(type="long")

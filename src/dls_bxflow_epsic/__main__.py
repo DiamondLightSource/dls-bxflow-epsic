@@ -5,9 +5,7 @@ from .version import meta, version
 
 
 def get_parser():
-    parser = ArgumentParser(
-        description="Command line accompanying the dls-bxflow-epsic package."
-    )
+    parser = ArgumentParser(description="Print the version of the package.")
     parser.add_argument(
         "--version",
         action="version",
