@@ -1,23 +1,17 @@
-.. include:: ../README.rst
-    :end-before: when included in index.rst
+dls-bxflow-epsic
+=======================================================================
 
-Source repository
------------------------------------------------------------------------
+Bxflow beamline library for ePSIC.
 
-${git_url}/${repository_name}
+Wraps core science algorithms as runnable tasks for workflow execution.
 
-Documentation
------------------------------------------------------------------------
+Also implements the filesystem naming conventions at the beamline.
 
-.. grid:: 2
-
-    .. grid-item-card:: :material-regular:`person;4em`
-        :link: user/index
-        :link-type: doc
-
-        The User Guide contains documentation on how to install and use the software.
 
 .. toctree::
-    :hidden:
+    :titlesonly:
 
-    user/index
+    tutorials/index
+    how-to/index
+    explanations/index
+    reference/index
