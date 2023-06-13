@@ -6,11 +6,11 @@ Installing
 =======================================================================
 
 
-You will need python >=3.10 or later. 
+You will need python 3.10 or later. 
 
-On a Diamond Light Source internal computer, you can achieve Python >=3.10 by::
+On a Diamond Light Source internal computer, you can achieve Python 3.10 by::
 
-    $ module load python/>=3.10
+    $ module load python/3.10
 
 You can check your version of python by typing into a terminal::
 
@@ -39,4 +39,4 @@ You can check the version that has been installed by typing::
     $ dls-bxflow-epsic --version
     $ dls-bxflow-epsic --version-json
 
-.. # dae_devops_fingerprint 2536adcdc877e553821264097f0af330
+.. # dae_devops_fingerprint 8a36471be569817b021d617c3891644b

@@ -188,7 +188,7 @@ ultimate_replacements = {
     "$" + "{repository_name}": "dls-bxflow-epsic",
     "$" + "{package_name}": "dls_bxflow_epsic",
     "$" + "{git_url}": "https://github.com/DiamondLightSource",
-    "$" + "{python_version_at_least}": ">=3.10",
+    "$" + "{python_version_at_least}": "3.10",
 }
 
 
@@ -197,4 +197,4 @@ def setup(app):
     app.connect("source-read", ultimateReplace)
 
 
-# dae_devops_fingerprint 3f4594f6f175a8e6f58718c177489f82
+# dae_devops_fingerprint 8e603e29e8b9baa409c57595a0c5e916
